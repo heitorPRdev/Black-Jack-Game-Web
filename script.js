@@ -11,26 +11,44 @@ function clear(){
 function random(num){
     return parseInt(Math.random() * num) + 1
 }
-function bot(){
+function pontuacao(pontBot,pontPlayer){
+    const ppontu= document.getElementById('ppontu')
+    if(pontBot > pontPlayer){
+        ppontu.innerText = `Você perdeu desculpe. ${pontBot}Clique no botão para recomeçar`
+    }
+    if(pontBot < pontPlayer){
+        ppontu.innerText = 'Parabéns você ganhou! Clique no botão para jogar novamente'
+
+    }if(pontBot == pontPlayer){
+        ppontu.innerText = 'Empate!! Clique no botão para jogar novamente'
+    }
+    
+}
+function bot(cat1,cart2){
     const turnos_id = document.getElementById('turnos')
     cart1_player.disabled = true
     cart2_player.disabled = true
     btn_Blja.disabled = true
     const desci = random(2)
-    turnos_id.innerHTML = ''
-    turnos_id.innerHTML = 'Turno do Bot'
+    let candocar = random(11)+random(11)
+    turnos_id.innerText = 'Turno do Bot'
+    if (desci == 1){
+        cart1_pnum = parseInt(cart1_player.innerText)
+        cart2_pnum = parseInt(cart2_player.innerText)
+        pontuacao(cart1_pnum+cart2_pnum,candocar)
+    }
     setTimeout(() =>{
         
-        game_func()
+        game_func(random(11)+random(11))
 
-        return desci
     }, 5000)
     
         
 }
-function game_func(){
+function game_func(botcars=0){
+    bot()
     const turnos_id = document.getElementById('turnos')
-    turnos_id.innerHTML = 'Seu turno'
+    turnos_id.innerText = 'Seu turno'
     cart1_player.disabled = false
     cart2_player.disabled = false
     btn_Blja.disabled = false
@@ -44,13 +62,19 @@ function game_func(){
         cart2_player.innerHTML = random(11)
         bot()
     })
-    btn_Blja.addEventListener('click',()=>{
-        // pontuacao()
-    })
+    if (!botcars == 0){
+        btn_Blja.addEventListener('click',()=>{
+            cart1_pnum = parseInt(cart1_player.innerText)
+            cart2_pnum = parseInt(cart2_player.innerText)
+            pontuacao(botcars,cart1_pnum+cart2_pnum)
+        })
+    }else{
+        btn_Blja.disabled = true
+    }
+    
     
 
 }
-
 function main(){
     game_func()
 }
