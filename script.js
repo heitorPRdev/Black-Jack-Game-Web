@@ -32,7 +32,9 @@ function bot(cat1,cart2){
     const desci = random(2)
     let candocar = random(11)+random(11)
     turnos_id.innerText = 'Turno do Bot'
+    
     if (desci == 1){
+        
         cart1_pnum = parseInt(cart1_player.innerText)
         cart2_pnum = parseInt(cart2_player.innerText)
         pontuacao(cart1_pnum+cart2_pnum,candocar)
@@ -75,7 +77,7 @@ function game_func(botcars=0){
         btn_Blja.disabled = true
     }
     
-    
+   
 
 }
 window.onload = game_func()
