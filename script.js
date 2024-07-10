@@ -14,7 +14,7 @@ function random(num){
 function pontuacao(pontBot,pontPlayer){
     const ppontu= document.getElementById('ppontu')
     if(pontBot > pontPlayer){
-        ppontu.innerText = `Você perdeu desculpe. ${pontBot}Clique no botão para recomeçar`
+        ppontu.innerText = `Você perdeu desculpe. Clique no botão para recomeçar`
     }
     if(pontBot < pontPlayer){
         ppontu.innerText = 'Parabéns você ganhou! Clique no botão para jogar novamente'
@@ -46,7 +46,6 @@ function bot(cat1,cart2){
         
 }
 function game_func(botcars=0){
-    bot()
     const turnos_id = document.getElementById('turnos')
     turnos_id.innerText = 'Seu turno'
     cart1_player.disabled = false
@@ -63,7 +62,11 @@ function game_func(botcars=0){
         bot()
     })
     if (!botcars == 0){
+        
         btn_Blja.addEventListener('click',()=>{
+            cart1_player.disabled = true
+            cart2_player.disabled = true
+            btn_Blja.disabled = true
             cart1_pnum = parseInt(cart1_player.innerText)
             cart2_pnum = parseInt(cart2_player.innerText)
             pontuacao(botcars,cart1_pnum+cart2_pnum)
@@ -75,7 +78,4 @@ function game_func(botcars=0){
     
 
 }
-function main(){
-    game_func()
-}
-window.onload = main
+window.onload = game_func()
