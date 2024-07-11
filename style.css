@@ -44,9 +44,9 @@ ul{
     top: 5px;
     
 }
-#btn_Blja{
-    position: relative;
-    top: 130px;
+
+
+.btns{
     font-size: 20px;
     width: 100px;
     margin-left: 10px;
@@ -56,7 +56,15 @@ ul{
     border-style: none;
     border-radius: 5px;
 }
-#btn_Blja:disabled{
+.btns:disabled{
+    background-color: rgb(83, 83, 83);
+    color: rgb(255, 255, 255);
+}
+#btn_continuar{
+    margin-bottom: 9%;
+    
+}
+#btn_continuar:disabled{
     background-color: rgb(83, 83, 83);
     color: rgb(255, 255, 255);
 }
