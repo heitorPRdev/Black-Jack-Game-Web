@@ -44,7 +44,7 @@ body{
     
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 400px) {
     .cartas{
         font-size: 28px;
         width: 100px;
@@ -75,7 +75,8 @@ body{
     }
     #cart2_play{
         position: relative;
-        top: 0px;
+        top: 180px;
+        left: -110px;
     }
     #btnsm{
         position: absolute;
